@@ -1,4 +1,4 @@
-$.fn.roll = function(direction, increment) {
+$.fn.inputScroll = function(direction, increment) {
   
   if (typeof rolling == 'undefined') {
     rolling = false;
