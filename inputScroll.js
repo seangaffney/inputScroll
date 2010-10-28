@@ -12,6 +12,8 @@ $.fn.roll = function(direction, amount) {
     
     self.attr('name', self.attr('name')+'_old');
     
+    height = self.height();
+    
     dollas = parseInt(self.val().replace('$', ''));
   
     if (direction == 'down') {
@@ -29,11 +31,11 @@ $.fn.roll = function(direction, amount) {
       move = '+';
     }
   
-    $newAmount.val('$'+dollas).css('top', modifier+'30px');
+    $newAmount.val('$'+dollas).css('top', modifier+height+'px');
  
     self.parent().append($newAmount);
   
-    $('.'+self.attr('class')).stop(true, true).animate({top: move + '=30'}, 200, function(){
+    $('.'+self.attr('class')).stop(true, true).animate({top: move + '=' + height}, 200, function(){
       self.remove();
       rolling = false;
     });
