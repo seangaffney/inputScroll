@@ -1,4 +1,4 @@
-$.fn.roll = function(direction, amount) {
+$.fn.roll = function(direction, increment) {
   
   if (typeof rolling == 'undefined') {
     rolling = false;
@@ -6,7 +6,7 @@ $.fn.roll = function(direction, amount) {
   
   if (!rolling) {
     rolling = true;
-    amount = amount || 10;
+    increment = increment || 10;
     self = $(this);
     $newAmount = self.clone();
     
@@ -20,13 +20,13 @@ $.fn.roll = function(direction, amount) {
       if (dollas <= 0) {
         dollas = 0;
       } else {
-       dollas -= amount;
+       dollas -= increment;
        go = false;
       }
       modifier = '';
       move = '-';
     } else {
-      dollas += amount;
+      dollas += increment;
       modifier = '-';
       move = '+';
     }
